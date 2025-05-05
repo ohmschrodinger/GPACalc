@@ -37,6 +37,7 @@ function parseGrade(grade) {
 function App() {
   const [subjects, setSubjects] = useState(defaultSubjects);
   const [theme, setTheme] = useState('dark');
+  const [quickCalc, setQuickCalc] = useState(true);
 
   const handleChange = (idx, field, value) => {
     const updated = [...subjects];
@@ -105,7 +106,16 @@ function App() {
         </button>
       </div>
       <div className="glass-card">
-        <h1>GPA Calculator</h1>
+        <div className="header-row">
+          <h1>GPA Calculator</h1>
+          <div className="quick-calc-toggle">
+            <label className="switch">
+              <input type="checkbox" checked={quickCalc} onChange={() => setQuickCalc(!quickCalc)} />
+              <span className="slider"></span>
+            </label>
+            <span className="quick-calc-label">Quick Calc</span>
+          </div>
+        </div>
         <table className="glass-table">
           <thead>
             <tr>
