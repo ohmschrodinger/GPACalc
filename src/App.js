@@ -12,6 +12,9 @@ const GRADE_MAP = {
   'F': null,
 };
 
+const INTERNAL_GRADE_OPTIONS = ['-', 'O', 'A+', 'A', 'B+', 'B', 'C', 'P', 'F'];
+const EXTERNAL_GRADE_OPTIONS = ['', 'O', 'A+', 'A', 'B+', 'B', 'C', 'P', 'F'];
+
 const defaultSubjects = [
   { credits: '', subject: '', internal: '', external: '', key: Date.now() },
 ];
@@ -72,8 +75,16 @@ function App() {
       <tr key={row.key} className={rowInvalid ? 'invalid-row' : ''}>
         <td><input type="number" min="1" className={`glass-input${!isCreditsValid ? ' invalid-input' : ''}`} value={row.credits} onChange={e => handleChange(idx, 'credits', e.target.value.replace(/[^0-9]/g, ''))} /></td>
         <td><input type="text" className="glass-input" value={row.subject} onChange={e => handleChange(idx, 'subject', e.target.value)} /></td>
-        <td><input type="text" className={`glass-input${!isInternalValid ? ' invalid-input' : ''}`} value={row.internal} onChange={e => handleChange(idx, 'internal', e.target.value)} placeholder="O, A+, A..." /></td>
-        <td><input type="text" className={`glass-input${!isExternalValid ? ' invalid-input' : ''}`} value={row.external} onChange={e => handleChange(idx, 'external', e.target.value)} placeholder="O, A+, A..." /></td>
+        <td>
+          <select className={`glass-input${!isInternalValid ? ' invalid-input' : ''}`} value={row.internal} onChange={e => handleChange(idx, 'internal', e.target.value)}>
+            {INTERNAL_GRADE_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+          </select>
+        </td>
+        <td>
+          <select className={`glass-input${!isExternalValid ? ' invalid-input' : ''}`} value={row.external} onChange={e => handleChange(idx, 'external', e.target.value)}>
+            {EXTERNAL_GRADE_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+          </select>
+        </td>
         <td>{overall}</td>
         <td>
           {subjects.length > 1 && (
