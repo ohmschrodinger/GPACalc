@@ -1,38 +1,192 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: background 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+.App.dark {
+  background: linear-gradient(135deg, #181c2b 0%, #232946 100%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App.light {
+  background: linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+  max-width: 1200px;
+  width: 95%;
+  min-height: 700px;
+  margin: 2rem auto;
+  color: #fff;
+  transition: background 0.5s, color 0.5s;
+}
+
+.App.light .glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  color: #232946;
+  border: 1px solid rgba(35, 41, 70, 0.18);
+}
+
+h1 {
+  font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 16px #00eaff44;
+}
+
+.glass-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  background: transparent;
+}
+
+.glass-table th, .glass-table td {
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.App.light .glass-table th, .App.light .glass-table td {
+  border-bottom: 1px solid rgba(35,41,70,0.12);
+}
+
+.glass-input {
+  background: rgba(255,255,255,0.18);
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 2px 8px #00eaff22;
+  transition: background 0.3s, color 0.3s;
+}
+
+.App.light .glass-input {
+  background: rgba(35,41,70,0.08);
+  color: #232946;
+}
+
+.glass-input:focus {
+  background: rgba(0,234,255,0.12);
+}
+
+.add-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #00eaff 0%, #6f00ff 100%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #00eaff44;
+  transition: background 0.3s, color 0.3s;
+}
+
+.add-btn:hover {
+  background: linear-gradient(90deg, #6f00ff 0%, #00eaff 100%);
+}
+
+.gpa-result {
+  /* Removed: no longer used */
+  display: none;
+}
+
+.gpa-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #00eaff;
+  text-shadow: 0 2px 8px #00eaff44;
+}
+
+.gpa-row {
+  background: rgba(0,234,255,0.07);
+}
+
+.App.light .gpa-row {
+  background: rgba(35,41,70,0.07);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.theme-toggle button {
+  background: rgba(0,234,255,0.12);
+  border: none;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  color: #00eaff;
+  font-size: 1.1rem;
+  font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #00eaff44;
+  transition: background 0.3s, color 0.3s;
+}
+
+.theme-toggle button:hover {
+  background: #00eaff;
+  color: #232946;
+}
+
+@media (max-width: 700px) {
+  .glass-card {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
   }
-  to {
-    transform: rotate(360deg);
+  .glass-table th, .glass-table td {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.95rem;
   }
+  .gpa-result {
+    font-size: 1.05rem;
+  }
+  .gpa-value {
+    font-size: 1.2rem;
+  }
+}
+
+.delete-btn {
+  background: rgba(255, 0, 80, 0.12);
+  border: none;
+  border-radius: 50%;
+  color: #ff0050;
+  font-size: 1.1rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #ff005044;
+  transition: background 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+  background: #ff0050;
+  color: #fff;
+}
+
+.invalid-row {
+  background: rgba(255,0,80,0.08) !important;
+}
+
+.invalid-input {
+  border: 1.5px solid #ff0050 !important;
+  box-shadow: 0 0 6px #ff005088 !important;
+  background: rgba(255,0,80,0.10) !important;
+  color: #ff0050 !important;
 }
