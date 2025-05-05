@@ -19,6 +19,96 @@ body, .App {
   align-items: center;
 }
 
+.App.light, body.App.light {
+  background: #f5f6fa;
+  color: #18181b;
+}
+
+.App.light .glass-card {
+  background: #fff;
+  color: #18181b;
+  box-shadow: 0 4px 24px 0 #00000011;
+}
+
+.App.light h1 {
+  color: #18181b;
+}
+
+.App.light .glass-table th, .App.light .glass-table td {
+  background: #fff;
+  color: #18181b;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.App.light .glass-table th {
+  background: #f5f6fa;
+  color: #18181b;
+}
+
+.App.light .glass-input, .App.light .glass-table select {
+  background: #f5f6fa;
+  color: #18181b;
+  border: 1.5px solid #e5e7eb;
+}
+
+.App.light .glass-input:focus {
+  background: #fff;
+  border: 1.5px solid #2563eb;
+  color: #18181b;
+}
+
+.App.light .add-btn {
+  background: #2563eb;
+  color: #fff;
+}
+
+.App.light .add-btn:hover {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.App.light .delete-btn {
+  background: #f5f6fa;
+  color: #ff0050;
+  border: 1.5px solid #ff0050;
+}
+
+.App.light .delete-btn:hover {
+  background: #ff0050;
+  color: #fff;
+  border: 1.5px solid #2563eb;
+}
+
+.App.light .invalid-row {
+  background: #ffe6ee !important;
+}
+
+.App.light .invalid-input {
+  border: 1.5px solid #ff0050 !important;
+  background: #ffe6ee !important;
+  color: #ff0050 !important;
+}
+
+.App.light .gpa-row {
+  background: #f5f6fa;
+}
+
+.App.light .gpa-value {
+  color: #2563eb;
+}
+
+.App.light .theme-toggle button {
+  background: #f5f6fa;
+  color: #18181b;
+  border: 1.5px solid #e5e7eb;
+}
+
+.App.light .theme-toggle button:hover {
+  background: #e5e7eb;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+}
+
 .glass-card {
   background: #23232a;
   border-radius: 16px;
